@@ -2,17 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="MyBatis2.UserInter">
-    <select id="showusermsg" resultType="MyBatis2.User">
+<mapper namespace="MyBatis.example.UserInter">
+    <select id="showusermsg" resultType="MyBatis.example.User">
        SELECT  * from usersmsg where idcardnum = #{idcardnum};
     </select>
-    <insert id="insertuser" parameterType="MyBatis2.User">
+    <insert id="insertuser" parameterType="MyBatis.example.User">
         insert into usersmsg values (#{id},#{name},#{idcardnum},#{account},#{password},#{username},#{gender},#{sign},#{headpicture});
     </insert>
     <delete id="deleteuser" parameterType="String">
         delete from usersmsg where idcardnum = #{idcardnum};
     </delete>
-    <update id="updateuser" parameterType="MyBatis2.User">
+    <update id="updateuser" parameterType="MyBatis.example.User">
         update usersmsg set name = #{name},account = #{account},password = #{password},username = #{username},gender = #{gender},sign = #{sign},headpicture = #{headpicture} where idcardnum = #{idcardnum};
     </update>
 </mapper>
