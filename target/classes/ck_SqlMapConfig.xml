@@ -15,6 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="SqlMap.xml"/>
+        <mapper resource="ck_SqlMap.xml"/>
     </mappers>
 </configuration>
