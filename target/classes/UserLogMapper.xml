@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 <mapper namespace="day170511.User_Inter.UserLogMapper">
   <resultMap id="BaseResultMap" type="day170511.User.UserLog">
+=======
+<mapper namespace="ck.MyBatis.ck17051102.Test.UserLogMapper">
+  <resultMap id="BaseResultMap" type="ck.MyBatis.ck17051102.User.UserLog">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     <id column="ID" jdbcType="BIGINT" property="id" />
     <result column="user_guid" jdbcType="VARCHAR" property="userGuid" />
     <result column="op_code" jdbcType="INTEGER" property="opCode" />
@@ -69,7 +74,11 @@
   <sql id="Base_Column_List">
     ID, user_guid, op_code, op_result, op_date
   </sql>
+<<<<<<< HEAD
   <select id="selectByExample" parameterType="day170511.User.UserLogExample" resultMap="BaseResultMap">
+=======
+  <select id="selectByExample" parameterType="ck.MyBatis.ck17051102.User.UserLogExample" resultMap="BaseResultMap">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     select
     <if test="distinct">
       distinct
@@ -101,13 +110,21 @@
     delete from user_log
     where ID = #{id,jdbcType=BIGINT}
   </delete>
+<<<<<<< HEAD
   <delete id="deleteByExample" parameterType="day170511.User.UserLogExample">
+=======
+  <delete id="deleteByExample" parameterType="ck.MyBatis.ck17051102.User.UserLogExample">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     delete from user_log
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+<<<<<<< HEAD
   <insert id="insert" parameterType="day170511.User.UserLog">
+=======
+  <insert id="insert" parameterType="ck.MyBatis.ck17051102.User.UserLog">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -116,7 +133,11 @@
     values (#{userGuid,jdbcType=VARCHAR}, #{opCode,jdbcType=INTEGER}, #{opResult,jdbcType=INTEGER}, 
       #{opDate,jdbcType=TIMESTAMP})
   </insert>
+<<<<<<< HEAD
   <insert id="insertSelective" parameterType="day170511.User.UserLog">
+=======
+  <insert id="insertSelective" parameterType="ck.MyBatis.ck17051102.User.UserLog">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -150,7 +171,11 @@
       </if>
     </trim>
   </insert>
+<<<<<<< HEAD
   <select id="countByExample" parameterType="day170511.User.UserLogExample" resultType="java.lang.Long">
+=======
+  <select id="countByExample" parameterType="ck.MyBatis.ck17051102.User.UserLogExample" resultType="java.lang.Long">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     select count(*) from user_log
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -190,7 +215,11 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
+<<<<<<< HEAD
   <update id="updateByPrimaryKeySelective" parameterType="day170511.User.UserLog">
+=======
+  <update id="updateByPrimaryKeySelective" parameterType="ck.MyBatis.ck17051102.User.UserLog">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     update user_log
     <set>
       <if test="userGuid != null">
@@ -208,7 +237,11 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
+<<<<<<< HEAD
   <update id="updateByPrimaryKey" parameterType="day170511.User.UserLog">
+=======
+  <update id="updateByPrimaryKey" parameterType="ck.MyBatis.ck17051102.User.UserLog">
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     update user_log
     set user_guid = #{userGuid,jdbcType=VARCHAR},
       op_code = #{opCode,jdbcType=INTEGER},

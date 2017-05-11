@@ -29,7 +29,11 @@ public class UserCRUD {
         }
     }
     public static void main(String[] args) {
+<<<<<<< HEAD
         SqlSession session_us = sqlSessionFactory_us.openSession();
         SqlSession session_unus = sqlSessionFactory_unus.openSession();
+=======
+        System.out.println("mmp");
+>>>>>>> 213b9fb6075c139412467fc395e410e5a9f29613
     }
 }
