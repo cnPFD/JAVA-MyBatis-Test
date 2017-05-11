@@ -23,7 +23,7 @@ public class Link_CRUD {
 
     static{
         try {
-            reader = Resources.getResourceAsReader("SqlMapConfig.xml");
+            reader = Resources.getResourceAsReader("MyBatis/example/SqlMapConfig.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();

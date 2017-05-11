@@ -20,7 +20,7 @@ public class sqltest {
     static{
         try {
             System.out.println(1);
-            reader = Resources.getResourceAsReader("ck_SqlMapConfig.xml");
+            reader = Resources.getResourceAsReader("ck/MyBatis/ck_SqlMapConfig.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             System.out.println(1);
         } catch (IOException e) {

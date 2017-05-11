@@ -24,7 +24,7 @@ public class UserCRUD {
 
     static {
         try {
-            reader = Resources.getResourceAsReader("wcc_SqlMapConfig.xml");
+            reader = Resources.getResourceAsReader("wcc/wcc_SqlMapConfig.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,6 +35,7 @@ public class UserCRUD {
     @GET
     @Produces("application/json")
     public String selectUser(@QueryParam("user_nicename") String user_nicename){
+
         SqlSession session = sqlSessionFactory.openSession();
         UserCRUDInter userCRUDInter = session.getMapper(UserCRUDInter.class);
         User user = userCRUDInter.selectUser(user_nicename);
