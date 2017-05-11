@@ -1,4 +1,4 @@
-package day170511.User_unus_Inter;
+package day170511.User_Inter;
 
 import User_unus.User_unus;
 import User_unus.User_unusExample;

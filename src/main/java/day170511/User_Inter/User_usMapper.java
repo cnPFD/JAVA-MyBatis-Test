@@ -1,8 +1,8 @@
-package day170511.User_unus_Inter;
+package day170511.User_Inter;
 
 
-import day170511.User_unus.User_us;
-import day170511.User_unus.User_usExample;
+import day170511.User.User_us;
+import day170511.User.User_usExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
