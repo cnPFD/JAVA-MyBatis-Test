@@ -20,11 +20,8 @@ public class sqltest {
     static{
         try {
             System.out.println(1);
-<<<<<<< HEAD:src/main/java/ck/MyBatis/ck170510/sqltest.java
             reader = Resources.getResourceAsReader( "ck/MyBatis/ck_SqlMapConfig.xml" );
-=======
             reader = Resources.getResourceAsReader("ck/MyBatis/ck_SqlMapConfig.xml");
->>>>>>> e851aafe2eea767cf7b3d43e0560f266a10f92c6:src/main/java/ck/MyBatis/sqltest.java
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             System.out.println(1);
         } catch (IOException e) {

@@ -24,6 +24,6 @@ public class UserCRUD {
         }
     }
     public static void main(String[] args) {
-
+        System.out.println("mmp");
     }
 }
