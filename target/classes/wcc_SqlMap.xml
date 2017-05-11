@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wcc.UserCRUDInter">
+    <select id="selectUser" resultType="wcc.User">
+        SELECT  * from wcc_users where user_nicename=#{user_nicename} ;
+    </select>
+    <insert id="insertUser" parameterType="wcc.User">
+        insert into wcc_users values (
+        #{id}, #{user_login},#{user_pass},
+        #{user_nicename},#{user_phone},#{user_email},
+        #{user_url},#{user_registered},#{user_activation_key},
+        #{user_status},#{display_name},#{father_id},#{uuid});
+    </insert>
+    <update id="updateUser" parameterType="wcc.User">
+        update wcc_users set user_pass = #{user_pass},user_nicename = #{user_nicename},user_phone=#{user_phone},
+                               user_email = #{user_email},user_url = #{user_url},user_registered=#{user_registered},
+                               user_activation_key=#{user_activation_key},user_status = #{user_status},
+                               display_name = #{display_name},father_id = #{father_id}
+                               where user_nicename = #{user_nicename};
+    </update>
+    <delete id="deleteUser" parameterType="String">
+        delete from wcc_users where user_nicename=#{user_nicename};
+    </delete>
+</mapper>
