@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="User_us_Inter.User_usMapper">
-  <resultMap id="BaseResultMap" type="User_us.User_us">
+<mapper namespace="day170511.User_Inter.User_usMapper">
+  <resultMap id="BaseResultMap" type="day170511.User.User_us">
     <id column="ID" jdbcType="BIGINT" property="id" />
     <result column="user_guid" jdbcType="VARCHAR" property="userGuid" />
     <result column="user_login" jdbcType="VARCHAR" property="userLogin" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List">
     ID, user_guid, user_login, user_pass, user_phone, user_nicename, user_email, user_status
   </sql>
-  <select id="selectByExample" parameterType="User_us.User_usExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="day170511.User.User_usExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -104,13 +104,13 @@
     delete from user
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="User_us.User_usExample">
+  <delete id="deleteByExample" parameterType="day170511.User.User_usExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="User_us.User_us">
+  <insert id="insert" parameterType="day170511.User.User_us">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -121,7 +121,7 @@
       #{userPhone,jdbcType=VARCHAR}, #{userNicename,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
       #{userStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="User_us.User_us">
+  <insert id="insertSelective" parameterType="day170511.User.User_us">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -173,7 +173,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="User_us.User_usExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="day170511.User.User_usExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -225,7 +225,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="User_us.User_us">
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.User.User_us">
     update user
     <set>
       <if test="userGuid != null">
@@ -252,7 +252,7 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="User_us.User_us">
+  <update id="updateByPrimaryKey" parameterType="day170511.User.User_us">
     update user
     set user_guid = #{userGuid,jdbcType=VARCHAR},
       user_login = #{userLogin,jdbcType=VARCHAR},

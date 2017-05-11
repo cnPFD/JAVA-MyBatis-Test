@@ -18,6 +18,18 @@ public class User_unus implements Serializable {
 
     private Integer userStatus;
 
+    public User_unus() {
+    }
+
+    public User_unus(Long id, String userGuid, String userGender, Integer userAge, String userIdcard, Integer userStatus) {
+        this.id = id;
+        this.userGuid = userGuid;
+        this.userGender = userGender;
+        this.userAge = userAge;
+        this.userIdcard = userIdcard;
+        this.userStatus = userStatus;
+    }
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {

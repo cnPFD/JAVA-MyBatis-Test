@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="User_unus_Inter.User_unusMapper">
-  <resultMap id="BaseResultMap" type="User_unus.User_unus">
+<mapper namespace="day170511.User_Inter.User_usMapper">
+  <resultMap id="BaseResultMap" type="day170511.User.User_us">
     <id column="ID" jdbcType="BIGINT" property="id" />
     <result column="user_guid" jdbcType="VARCHAR" property="userGuid" />
-    <result column="user_gender" jdbcType="VARCHAR" property="userGender" />
-    <result column="user_age" jdbcType="INTEGER" property="userAge" />
-    <result column="user_idcard" jdbcType="VARCHAR" property="userIdcard" />
+    <result column="user_login" jdbcType="VARCHAR" property="userLogin" />
+    <result column="user_pass" jdbcType="VARCHAR" property="userPass" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_nicename" jdbcType="VARCHAR" property="userNicename" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -68,9 +70,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, user_guid, user_gender, user_age, user_idcard, user_status
+    ID, user_guid, user_login, user_pass, user_phone, user_nicename, user_email, user_status
   </sql>
-  <select id="selectByExample" parameterType="User_unus.User_unusExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="day170511.User.User_usExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -102,22 +104,24 @@
     delete from user
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="User_unus.User_unusExample">
+  <delete id="deleteByExample" parameterType="day170511.User.User_usExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="User_unus.User_unus">
+  <insert id="insert" parameterType="day170511.User.User_us">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (user_guid, user_gender, user_age, 
-      user_idcard, user_status)
-    values (#{userGuid,jdbcType=VARCHAR}, #{userGender,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER}, 
-      #{userIdcard,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER})
+    insert into user (user_guid, user_login, user_pass, 
+      user_phone, user_nicename, user_email, 
+      user_status)
+    values (#{userGuid,jdbcType=VARCHAR}, #{userLogin,jdbcType=VARCHAR}, #{userPass,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=VARCHAR}, #{userNicename,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="User_unus.User_unus">
+  <insert id="insertSelective" parameterType="day170511.User.User_us">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -126,14 +130,20 @@
       <if test="userGuid != null">
         user_guid,
       </if>
-      <if test="userGender != null">
-        user_gender,
+      <if test="userLogin != null">
+        user_login,
       </if>
-      <if test="userAge != null">
-        user_age,
+      <if test="userPass != null">
+        user_pass,
       </if>
-      <if test="userIdcard != null">
-        user_idcard,
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userNicename != null">
+        user_nicename,
+      </if>
+      <if test="userEmail != null">
+        user_email,
       </if>
       <if test="userStatus != null">
         user_status,
@@ -143,21 +153,27 @@
       <if test="userGuid != null">
         #{userGuid,jdbcType=VARCHAR},
       </if>
-      <if test="userGender != null">
-        #{userGender,jdbcType=VARCHAR},
+      <if test="userLogin != null">
+        #{userLogin,jdbcType=VARCHAR},
       </if>
-      <if test="userAge != null">
-        #{userAge,jdbcType=INTEGER},
+      <if test="userPass != null">
+        #{userPass,jdbcType=VARCHAR},
       </if>
-      <if test="userIdcard != null">
-        #{userIdcard,jdbcType=VARCHAR},
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userNicename != null">
+        #{userNicename,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null">
         #{userStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="User_unus.User_unusExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="day170511.User.User_usExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -172,14 +188,20 @@
       <if test="record.userGuid != null">
         user_guid = #{record.userGuid,jdbcType=VARCHAR},
       </if>
-      <if test="record.userGender != null">
-        user_gender = #{record.userGender,jdbcType=VARCHAR},
+      <if test="record.userLogin != null">
+        user_login = #{record.userLogin,jdbcType=VARCHAR},
       </if>
-      <if test="record.userAge != null">
-        user_age = #{record.userAge,jdbcType=INTEGER},
+      <if test="record.userPass != null">
+        user_pass = #{record.userPass,jdbcType=VARCHAR},
       </if>
-      <if test="record.userIdcard != null">
-        user_idcard = #{record.userIdcard,jdbcType=VARCHAR},
+      <if test="record.userPhone != null">
+        user_phone = #{record.userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNicename != null">
+        user_nicename = #{record.userNicename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userEmail != null">
+        user_email = #{record.userEmail,jdbcType=VARCHAR},
       </if>
       <if test="record.userStatus != null">
         user_status = #{record.userStatus,jdbcType=INTEGER},
@@ -193,28 +215,36 @@
     update user
     set ID = #{record.id,jdbcType=BIGINT},
       user_guid = #{record.userGuid,jdbcType=VARCHAR},
-      user_gender = #{record.userGender,jdbcType=VARCHAR},
-      user_age = #{record.userAge,jdbcType=INTEGER},
-      user_idcard = #{record.userIdcard,jdbcType=VARCHAR},
+      user_login = #{record.userLogin,jdbcType=VARCHAR},
+      user_pass = #{record.userPass,jdbcType=VARCHAR},
+      user_phone = #{record.userPhone,jdbcType=VARCHAR},
+      user_nicename = #{record.userNicename,jdbcType=VARCHAR},
+      user_email = #{record.userEmail,jdbcType=VARCHAR},
       user_status = #{record.userStatus,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="User_unus.User_unus">
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.User.User_us">
     update user
     <set>
       <if test="userGuid != null">
         user_guid = #{userGuid,jdbcType=VARCHAR},
       </if>
-      <if test="userGender != null">
-        user_gender = #{userGender,jdbcType=VARCHAR},
+      <if test="userLogin != null">
+        user_login = #{userLogin,jdbcType=VARCHAR},
       </if>
-      <if test="userAge != null">
-        user_age = #{userAge,jdbcType=INTEGER},
+      <if test="userPass != null">
+        user_pass = #{userPass,jdbcType=VARCHAR},
       </if>
-      <if test="userIdcard != null">
-        user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userNicename != null">
+        user_nicename = #{userNicename,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null">
         user_status = #{userStatus,jdbcType=INTEGER},
@@ -222,12 +252,14 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="User_unus.User_unus">
+  <update id="updateByPrimaryKey" parameterType="day170511.User.User_us">
     update user
     set user_guid = #{userGuid,jdbcType=VARCHAR},
-      user_gender = #{userGender,jdbcType=VARCHAR},
-      user_age = #{userAge,jdbcType=INTEGER},
-      user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      user_login = #{userLogin,jdbcType=VARCHAR},
+      user_pass = #{userPass,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_nicename = #{userNicename,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=INTEGER}
     where ID = #{id,jdbcType=BIGINT}
   </update>

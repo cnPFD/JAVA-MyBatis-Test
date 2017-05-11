@@ -22,6 +22,20 @@ public class User_us implements Serializable {
 
     private Integer userStatus;
 
+    public User_us() {
+    }
+
+    public User_us(Long id, String userGuid, String userLogin, String userPass, String userPhone, String userNicename, String userEmail, Integer userStatus) {
+        this.id = id;
+        this.userGuid = userGuid;
+        this.userLogin = userLogin;
+        this.userPass = userPass;
+        this.userPhone = userPhone;
+        this.userNicename = userNicename;
+        this.userEmail = userEmail;
+        this.userStatus = userStatus;
+    }
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
