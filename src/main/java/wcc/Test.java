@@ -22,7 +22,7 @@ public class Test {
 
     static {
         try {
-            reader = Resources.getResourceAsReader("wcc_SqlMapConfig.xml");
+            reader = Resources.getResourceAsReader( "wcc/wcc_SqlMapConfig.xml" );
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();
