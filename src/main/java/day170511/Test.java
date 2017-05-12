@@ -1,11 +1,5 @@
 package day170511;
 
-import day170511.User.UserLog;
-import day170511.User.User_unus;
-import day170511.User.User_us;
-import day170511.User_Inter.UserLogMapper;
-import day170511.User_Inter.User_unusMapper;
-import day170511.User_Inter.User_usMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,7 +7,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.UUID;
 

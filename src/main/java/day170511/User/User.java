@@ -4,140 +4,40 @@ package day170511.User;
  * Created by soft01 on 2017/5/12.
  */
 public class User {
-    private Long id;
-
-    private String userGuid;
-
-    private String userLogin;
-
-    private String userPass;
-
-    private String userPhone;
-
-    private String userNicename;
-
-    private String userEmail;
-
-    private String userGender;
-
-    private Integer userAge;
-
-    private String userIdcard;
-
-    private Integer userStatus;
+    private int status;
+    private User_us user_us;
+    private User_unus user_unus;
 
     public User() {
     }
 
-    public User(Long id,
-                String userGuid,
-                String userLogin,
-                String userPass,
-                String userPhone,
-                String userNicename,
-                String userEmail,
-                String userGender,
-                Integer userAge,
-                String userIdcard,
-                Integer userStatus) {
-        this.id = id;
-        this.userGuid = userGuid;
-        this.userLogin = userLogin;
-        this.userPass = userPass;
-        this.userPhone = userPhone;
-        this.userNicename = userNicename;
-        this.userEmail = userEmail;
-        this.userGender = userGender;
-        this.userAge = userAge;
-        this.userIdcard = userIdcard;
-        this.userStatus = userStatus;
+    public User(int status, User_us user_us, User_unus user_unus) {
+        this.status = status;
+        this.user_us = user_us;
+        this.user_unus = user_unus;
     }
 
-    public Long getId() {
-        return id;
+    public int getStatus() {
+        return status;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getUserGuid() {
-        return userGuid;
+    public User_us getUser_us() {
+        return user_us;
     }
 
-    public void setUserGuid(String userGuid) {
-        this.userGuid = userGuid;
+    public void setUser_us(User_us user_us) {
+        this.user_us = user_us;
     }
 
-    public String getUserLogin() {
-        return userLogin;
+    public User_unus getUser_unus() {
+        return user_unus;
     }
 
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-    }
-
-    public String getUserPass() {
-        return userPass;
-    }
-
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
-    }
-
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
-    }
-
-    public String getUserNicename() {
-        return userNicename;
-    }
-
-    public void setUserNicename(String userNicename) {
-        this.userNicename = userNicename;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserGender() {
-        return userGender;
-    }
-
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
-    }
-
-    public Integer getUserAge() {
-        return userAge;
-    }
-
-    public void setUserAge(Integer userAge) {
-        this.userAge = userAge;
-    }
-
-    public String getUserIdcard() {
-        return userIdcard;
-    }
-
-    public void setUserIdcard(String userIdcard) {
-        this.userIdcard = userIdcard;
-    }
-
-    public Integer getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(Integer userStatus) {
-        this.userStatus = userStatus;
+    public void setUser_unus(User_unus user_unus) {
+        this.user_unus = user_unus;
     }
 }

@@ -20,7 +20,7 @@ public interface User_unusMapper {
 
     List<User_unus> selectByExample(User_unusExample example);
 
-    User_unus selectByPrimaryKey(Long id);
+    User_unus selectByPrimaryKey(String userGuid);
 
     int updateByExampleSelective(@Param("record") User_unus record, @Param("example") User_unusExample example);
 
