@@ -1,10 +1,7 @@
 package day170511.term_Inter;
 
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 import day170511.term.TermTaxonomy;
 import day170511.term.TermTaxonomyExample;

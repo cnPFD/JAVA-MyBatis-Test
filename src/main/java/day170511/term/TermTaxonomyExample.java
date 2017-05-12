@@ -2,10 +2,7 @@ package day170511.term;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 public class TermTaxonomyExample {
     protected String orderByClause;

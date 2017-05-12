@@ -1,10 +1,7 @@
 package ck.MyBatis.ck170511.User;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 
 /**

@@ -2,10 +2,7 @@ package ck.MyBatis.ck170511.Test;
 
 
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 import ck.MyBatis.ck170511.User.User;
 import ck.MyBatis.ck170511.User.UserExample;

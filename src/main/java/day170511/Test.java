@@ -55,21 +55,35 @@ public class Test {
         String nicename = "wcc";
         String email = "1106149162@qq.com";
         Date date = new Date();
+
         SqlSession session_us = sqlSessionFactory_us.openSession();
         SqlSession session_unus = sqlSessionFactory_unus.openSession();
         SqlSession session_log = sqlSessionFactory_log.openSession();
+
         User_us user_us = new User_us(id,guid,login,pass,phone,nicename,email,status);
         User_unus user_unus = new User_unus(id,guid,gender,age,idcard,status);
-        UserLog userLog = new UserLog(id,guid,0,1,date);
+
+
         User_usMapper user_usMapper = session_us.getMapper(User_usMapper.class);
         User_unusMapper user_unusMapper = session_unus.getMapper(User_unusMapper.class);
         UserLogMapper userLogMapper = session_log.getMapper(UserLogMapper.class);
-        user_usMapper.insert(user_us);
+
+        int i_us = user_usMapper.insert(user_us);
         session_us.commit();
-        user_unusMapper.insert(user_unus);
+
+        int i_unus = user_unusMapper.insert(user_unus);
         session_unus.commit();
+
+        int opResult;
+        if(i_us==1&&i_unus==1){
+            opResult = 1;
+        }else{
+            opResult = 0;
+        }
+        UserLog userLog = new UserLog(id,guid,0,opResult,date);
         userLogMapper.insert(userLog);
         session_log.commit();
+
         session_us.close();
         session_unus.close();
         session_log.close();

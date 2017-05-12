@@ -20,7 +20,7 @@ public interface User_usMapper {
 
     List<User_us> selectByExample(User_usExample example);
 
-    User_us selectByPrimaryKey(Long id);
+    User_us selectByPrimaryKey(String userPhone);
 
     int updateByExampleSelective(@Param("record") User_us record, @Param("example") User_usExample example);
 

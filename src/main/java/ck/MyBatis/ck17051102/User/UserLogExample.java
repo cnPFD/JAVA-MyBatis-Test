@@ -3,10 +3,7 @@ package ck.MyBatis.ck17051102.User;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 public class UserLogExample {
     protected String orderByClause;

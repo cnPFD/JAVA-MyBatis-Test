@@ -16,6 +16,6 @@
     </environments>
     <mappers>
         <!--<package name="day170511.User_Inter"></package>-->
-        <mapper resource="UserlogMapper.xml"/>
+        <mapper resource="UserLogMapper.xml"/>
     </mappers>
 </configuration>
