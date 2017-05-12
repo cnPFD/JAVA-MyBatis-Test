@@ -44,54 +44,48 @@ public class UserCRUD {
             throw new RuntimeException("加载文件失败！",e);
         }
     }
-<<<<<<< HEAD
-    @GET
-    @Produces("application/json")
-    public String selectUser(@QueryParam("phone") String phone){
-=======
 
-
-    public static void main(String[] args) {
-<<<<<<< HEAD
->>>>>>> d022d93e621849e29628745d150b6f6167b7f30d
-        SqlSession session_us = sqlSessionFactory_us.openSession();
-        SqlSession session_unus = sqlSessionFactory_unus.openSession();
-        SqlSession session_log = sqlSessionFactory_log.openSession();
-
-        User_usMapper user_usMapper = session_us.getMapper(User_usMapper.class);
-        User_unusMapper user_unusMapper = session_unus.getMapper(User_unusMapper.class);
-        UserLogMapper userLogMapper = session_log.getMapper(UserLogMapper.class);
-
-        User_us user_us = user_usMapper.selectByPrimaryKey(phone);
-        User_unus user_unus = user_unusMapper.selectByPrimaryKey(user_us.getId());
-        User user = new User(user_us.getId(),
-                user_us.getUserGuid(),
-                user_us.getUserLogin(),
-                user_us.getUserPass(),
-                user_us.getUserPhone(),
-                user_us.getUserNicename(),
-                user_us.getUserEmail(),
-                user_unus.getUserGender(),
-                user_unus.getUserAge(),
-                user_unus.getUserIdcard(),
-                user_unus.getUserStatus());
-
-        int opResult;
-        if(user_unus!=null&&user_us!=null){
-            opResult = 1;
-        }else{
-            opResult = 0;
-        }
-        Date date = new Date();
-        UserLog userLog = new UserLog(0l,user_us.getUserGuid(),1,opResult,date);
-        userLogMapper.insert(userLog);
-        session_log.commit();
-
-        session_us.close();
-        session_unus.close();
-        session_log.close();
-        return JSON.toJSONString(user);
-    }
+//    @GET
+//    @Produces("application/json")
+//    public String selectUser(@QueryParam("phone") String phone){
+//        SqlSession session_us = sqlSessionFactory_us.openSession();
+//        SqlSession session_unus = sqlSessionFactory_unus.openSession();
+//        SqlSession session_log = sqlSessionFactory_log.openSession();
+//
+//        User_usMapper user_usMapper = session_us.getMapper(User_usMapper.class);
+//        User_unusMapper user_unusMapper = session_unus.getMapper(User_unusMapper.class);
+//        UserLogMapper userLogMapper = session_log.getMapper(UserLogMapper.class);
+//
+//        User_us user_us = user_usMapper.selectByPrimaryKey(phone);
+//        User_unus user_unus = user_unusMapper.selectByPrimaryKey(user_us.getId());
+//        User user = new User(user_us.getId(),
+//                user_us.getUserGuid(),
+//                user_us.getUserLogin(),
+//                user_us.getUserPass(),
+//                user_us.getUserPhone(),
+//                user_us.getUserNicename(),
+//                user_us.getUserEmail(),
+//                user_unus.getUserGender(),
+//                user_unus.getUserAge(),
+//                user_unus.getUserIdcard(),
+//                user_unus.getUserStatus());
+//
+//        int opResult;
+//        if(user_unus!=null&&user_us!=null){
+//            opResult = 1;
+//        }else{
+//            opResult = 0;
+//        }
+//        Date date = new Date();
+//        UserLog userLog = new UserLog(0l,user_us.getUserGuid(),1,opResult,date);
+//        userLogMapper.insert(userLog);
+//        session_log.commit();
+//
+//        session_us.close();
+//        session_unus.close();
+//        session_log.close();
+//        return JSON.toJSONString(user);
+//    }
 
 
     @PUT
