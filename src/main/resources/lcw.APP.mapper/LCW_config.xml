@@ -20,6 +20,6 @@
     </environments>
     <mappers>
         <package name="lcw.APP.mapper"/>
-        <!--<mapper resource="lcw/APP/resources/User_DAO.xml"/>-->
+        <!--<mapper resource="lcw.APP/resources/User_DAO.xml"/>-->
     </mappers>
 </configuration>

@@ -26,7 +26,7 @@ public class User_CRUD {
     static{
         System.out.println("MMMMMMMPPP");
         try {
-            reader = Resources.getResourceAsReader("lcw/APP/mapper/LCW_config.xml");
+            reader = Resources.getResourceAsReader("lcw.APP.mapper/LCW_config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();

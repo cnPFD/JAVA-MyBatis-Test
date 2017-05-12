@@ -42,7 +42,6 @@ public class TermCRUD {
 
     @POST
     @Consumes("application/x-www-form-urlencoded")
-    @Produces("application/json")
     public String insert(@FormParam( "termId" )long termId,@FormParam( "name" )String name,@FormParam( "slug" )String slug,
                          @FormParam( "termGroup" )long termGroup){
         System.out.println(1);

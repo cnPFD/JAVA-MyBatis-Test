@@ -44,24 +44,16 @@ public class UserCRUD {
             throw new RuntimeException("加载文件失败！",e);
         }
     }
-<<<<<<< HEAD
     @GET
     @Produces("application/json")
     public String selectUser(@QueryParam("phone") String phone){
-=======
 
-
-    public static void main(String[] args) {
-<<<<<<< HEAD
->>>>>>> d022d93e621849e29628745d150b6f6167b7f30d
         SqlSession session_us = sqlSessionFactory_us.openSession();
         SqlSession session_unus = sqlSessionFactory_unus.openSession();
         SqlSession session_log = sqlSessionFactory_log.openSession();
-
         User_usMapper user_usMapper = session_us.getMapper(User_usMapper.class);
         User_unusMapper user_unusMapper = session_unus.getMapper(User_unusMapper.class);
         UserLogMapper userLogMapper = session_log.getMapper(UserLogMapper.class);
-
         User_us user_us = user_usMapper.selectByPrimaryKey(phone);
         User_unus user_unus = user_unusMapper.selectByPrimaryKey(user_us.getId());
         User user = new User(user_us.getId(),

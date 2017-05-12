@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="term_taxonomy_Inter.TermTaxonomyMapper">
+<mapper namespace="day170511.term_Inter.TermTaxonomyMapper">
   <resultMap id="BaseResultMap" type="term_taxonomy.TermTaxonomy">
     <id column="term_taxonomy_id" jdbcType="BIGINT" property="termTaxonomyId" />
     <result column="term_id" jdbcType="BIGINT" property="termId" />
@@ -8,7 +8,7 @@
     <result column="parent" jdbcType="BIGINT" property="parent" />
     <result column="count" jdbcType="BIGINT" property="count" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="term_taxonomy.TermTaxonomy">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="day170511.term.TermTaxonomy">
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -75,7 +75,7 @@
   <sql id="Blob_Column_List">
     description
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="term_taxonomy.TermTaxonomyExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="day170511.term.TermTaxonomyExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="term_taxonomy.TermTaxonomyExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="day170511.term.TermTaxonomyExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -125,13 +125,13 @@
     delete from term_taxonomy
     where term_taxonomy_id = #{termTaxonomyId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="term_taxonomy.TermTaxonomyExample">
+  <delete id="deleteByExample" parameterType="day170511.term.TermTaxonomyExample">
     delete from term_taxonomy
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="term_taxonomy.TermTaxonomy">
+  <insert id="insert" parameterType="day170511.term.TermTaxonomy">
     <selectKey keyProperty="termTaxonomyId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -140,7 +140,7 @@
     values (#{termId,jdbcType=BIGINT}, #{taxonomy,jdbcType=VARCHAR}, #{parent,jdbcType=BIGINT}, 
       #{count,jdbcType=BIGINT}, #{description,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="term_taxonomy.TermTaxonomy">
+  <insert id="insertSelective" parameterType="day170511.term.TermTaxonomy">
     <selectKey keyProperty="termTaxonomyId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -180,7 +180,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="term_taxonomy.TermTaxonomyExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="day170511.term.TermTaxonomyExample" resultType="java.lang.Long">
     select count(*) from term_taxonomy
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -235,7 +235,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="term_taxonomy.TermTaxonomy">
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.term.TermTaxonomy">
     update term_taxonomy
     <set>
       <if test="termId != null">
@@ -256,7 +256,7 @@
     </set>
     where term_taxonomy_id = #{termTaxonomyId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="term_taxonomy.TermTaxonomy">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="day170511.term.TermTaxonomy">
     update term_taxonomy
     set term_id = #{termId,jdbcType=BIGINT},
       taxonomy = #{taxonomy,jdbcType=VARCHAR},
@@ -265,7 +265,7 @@
       description = #{description,jdbcType=LONGVARCHAR}
     where term_taxonomy_id = #{termTaxonomyId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="term_taxonomy.TermTaxonomy">
+  <update id="updateByPrimaryKey" parameterType="day170511.term.TermTaxonomy">
     update term_taxonomy
     set term_id = #{termId,jdbcType=BIGINT},
       taxonomy = #{taxonomy,jdbcType=VARCHAR},

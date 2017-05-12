@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="day170511.term_Inter.TermsMapper">
+  <resultMap id="BaseResultMap" type="day170511.term.Terms">
+    <id column="term_id" jdbcType="BIGINT" property="termId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="slug" jdbcType="VARCHAR" property="slug" />
+    <result column="term_group" jdbcType="BIGINT" property="termGroup" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    term_id, name, slug, term_group
+  </sql>
+  <select id="selectByExample" parameterType="day170511.term.TermsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from terms
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from terms
+    where term_id = #{termId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from terms
+    where term_id = #{termId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="day170511.term.TermsExample">
+    delete from terms
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="day170511.term.Terms">
+    <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into terms (name, slug, term_group
+      )
+    values (#{name,jdbcType=VARCHAR}, #{slug,jdbcType=VARCHAR}, #{termGroup,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="day170511.term.Terms">
+    <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into terms
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
+      <if test="slug != null">
+        slug,
+      </if>
+      <if test="termGroup != null">
+        term_group,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null">
+        #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="termGroup != null">
+        #{termGroup,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="day170511.term.TermsExample" resultType="java.lang.Long">
+    select count(*) from terms
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update terms
+    <set>
+      <if test="record.termId != null">
+        term_id = #{record.termId,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.slug != null">
+        slug = #{record.slug,jdbcType=VARCHAR},
+      </if>
+      <if test="record.termGroup != null">
+        term_group = #{record.termGroup,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update terms
+    set term_id = #{record.termId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      slug = #{record.slug,jdbcType=VARCHAR},
+      term_group = #{record.termGroup,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.term.Terms">
+    update terms
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="slug != null">
+        slug = #{slug,jdbcType=VARCHAR},
+      </if>
+      <if test="termGroup != null">
+        term_group = #{termGroup,jdbcType=BIGINT},
+      </if>
+    </set>
+    where term_id = #{termId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="day170511.term.Terms">
+    update terms
+    set name = #{name,jdbcType=VARCHAR},
+      slug = #{slug,jdbcType=VARCHAR},
+      term_group = #{termGroup,jdbcType=BIGINT}
+    where term_id = #{termId,jdbcType=BIGINT}
+  </update>
+</mapper>

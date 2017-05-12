@@ -19,6 +19,29 @@ public class TermTaxonomy implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Override
+    public String toString() {
+        return "TermTaxonomy{" +
+                "termTaxonomyId=" + termTaxonomyId +
+                ", termId=" + termId +
+                ", taxonomy='" + taxonomy + '\'' +
+                ", parent=" + parent +
+                ", count=" + count +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public TermTaxonomy(){}
+
+    public TermTaxonomy(Long termTaxonomyId, Long termId, String taxonomy, Long parent, Long count, String description) {
+        this.termTaxonomyId = termTaxonomyId;
+        this.termId = termId;
+        this.taxonomy = taxonomy;
+        this.parent = parent;
+        this.count = count;
+        this.description = description;
+    }
+
     public Long getTermTaxonomyId() {
         return termTaxonomyId;
     }
