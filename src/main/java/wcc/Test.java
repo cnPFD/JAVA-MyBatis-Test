@@ -22,6 +22,10 @@ public class Test {
 
     static {
         try {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad7c738773d338baba40fd8d02b896c273bcb36f
             reader = Resources.getResourceAsReader( "wcc/wcc_SqlMapConfig.xml" );
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {

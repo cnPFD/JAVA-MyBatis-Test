@@ -95,10 +95,10 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user
-    where ID = #{userPhone,jdbcType=VARCHAR}
+    where user_phone = #{userPhone,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from user
@@ -254,13 +254,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="day170511.User.User_us">
     update user
-    set user_guid = #{userGuid,jdbcType=VARCHAR},
-      user_login = #{userLogin,jdbcType=VARCHAR},
+    set user_login = #{userLogin,jdbcType=VARCHAR},
       user_pass = #{userPass,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},
       user_nicename = #{userNicename,jdbcType=VARCHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=INTEGER}
-    where ID = #{id,jdbcType=BIGINT}
+    where user_guid = #{userGuid,jdbcType=VARCHAR}
   </update>
 </mapper>

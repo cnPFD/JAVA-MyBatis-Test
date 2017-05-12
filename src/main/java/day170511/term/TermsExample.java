@@ -2,6 +2,10 @@ package day170511.term;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad7c738773d338baba40fd8d02b896c273bcb36f
 
 public class TermsExample {
     protected String orderByClause;
