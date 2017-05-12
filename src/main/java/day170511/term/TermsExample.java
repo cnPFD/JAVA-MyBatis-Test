@@ -6,7 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66da1cf6b6a537e8510727619c5a5f6a633b5d5f
 
 public class TermsExample {
     protected String orderByClause;
