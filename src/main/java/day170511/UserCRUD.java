@@ -44,9 +44,16 @@ public class UserCRUD {
             throw new RuntimeException("加载文件失败！",e);
         }
     }
+<<<<<<< HEAD
     @GET
     @Produces("application/json")
     public String selectUser(@QueryParam("phone") String phone){
+=======
+
+
+    public static void main(String[] args) {
+<<<<<<< HEAD
+>>>>>>> d022d93e621849e29628745d150b6f6167b7f30d
         SqlSession session_us = sqlSessionFactory_us.openSession();
         SqlSession session_unus = sqlSessionFactory_unus.openSession();
         SqlSession session_log = sqlSessionFactory_log.openSession();

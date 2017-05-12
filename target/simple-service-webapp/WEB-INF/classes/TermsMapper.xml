@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="term_Inter.TermsMapper">
-  <resultMap id="BaseResultMap" type="term.Terms">
+<mapper namespace="day170511.term_Inter.TermsMapper">
+  <resultMap id="BaseResultMap" type="day170511.term.Terms">
     <id column="term_id" jdbcType="BIGINT" property="termId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="slug" jdbcType="VARCHAR" property="slug" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     term_id, name, slug, term_group
   </sql>
-  <select id="selectByExample" parameterType="term.TermsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="day170511.term.TermsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from terms
     where term_id = #{termId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="term.TermsExample">
+  <delete id="deleteByExample" parameterType="day170511.term.TermsExample">
     delete from terms
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="term.Terms">
+  <insert id="insert" parameterType="day170511.term.Terms">
     <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -115,7 +115,7 @@
     values (#{name,jdbcType=VARCHAR}, #{slug,jdbcType=VARCHAR}, #{termGroup,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="term.Terms">
+  <insert id="insertSelective" parameterType="day170511.term.Terms">
     <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -143,7 +143,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="term.TermsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="day170511.term.TermsExample" resultType="java.lang.Long">
     select count(*) from terms
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -179,7 +179,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="term.Terms">
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.term.Terms">
     update terms
     <set>
       <if test="name != null">
@@ -194,7 +194,7 @@
     </set>
     where term_id = #{termId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="term.Terms">
+  <update id="updateByPrimaryKey" parameterType="day170511.term.Terms">
     update terms
     set name = #{name,jdbcType=VARCHAR},
       slug = #{slug,jdbcType=VARCHAR},

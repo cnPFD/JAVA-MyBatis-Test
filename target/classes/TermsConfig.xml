@@ -8,17 +8,14 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-<<<<<<< HEAD
-                <property name="url" value="jdbc:mysql://localhost:3306/wcc"/>
-=======
-                <property name="url" value="jdbc:mysql://10.1.180.60:3306/wcc"/>
->>>>>>> e851aafe2eea767cf7b3d43e0560f266a10f92c6
+                <property name="url" value="jdbc:mysql://10.1.180.60:3306/wcc2"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="wcc_SqlMap.xml"/>
+        <!--<package name="day170511.Inter"></package>-->
+        <mapper resource="TermsMapper.xml"/>
     </mappers>
 </configuration>

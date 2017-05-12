@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="day170511.User_Inter.UserLogMapper">
-  <resultMap id="BaseResultMap" type="day170511.User.UserLog">
-    <id column="ID" jdbcType="BIGINT" property="id" />
-    <result column="user_guid" jdbcType="VARCHAR" property="userGuid" />
-    <result column="op_code" jdbcType="INTEGER" property="opCode" />
-    <result column="op_result" jdbcType="INTEGER" property="opResult" />
-    <result column="op_date" jdbcType="TIMESTAMP" property="opDate" />
+<mapper namespace="day170511.term_Inter.TermsMapper">
+  <resultMap id="BaseResultMap" type="day170511.term.Terms">
+    <id column="term_id" jdbcType="BIGINT" property="termId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="slug" jdbcType="VARCHAR" property="slug" />
+    <result column="term_group" jdbcType="BIGINT" property="termGroup" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, user_guid, op_code, op_result, op_date
+    term_id, name, slug, term_group
   </sql>
-  <select id="selectByExample" parameterType="day170511.User.UserLogExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="day170511.term.TermsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_log
+    from terms
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -94,85 +93,76 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_log
-    where ID = #{id,jdbcType=BIGINT}
+    from terms
+    where term_id = #{termId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user_log
-    where ID = #{id,jdbcType=BIGINT}
+    delete from terms
+    where term_id = #{termId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="day170511.User.UserLogExample">
-    delete from user_log
+  <delete id="deleteByExample" parameterType="day170511.term.TermsExample">
+    delete from terms
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="day170511.User.UserLog">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+  <insert id="insert" parameterType="day170511.term.Terms">
+    <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user_log (user_guid, op_code, op_result, 
-      op_date)
-    values (#{userGuid,jdbcType=VARCHAR}, #{opCode,jdbcType=INTEGER}, #{opResult,jdbcType=INTEGER}, 
-      #{opDate,jdbcType=TIMESTAMP})
+    insert into terms (name, slug, term_group
+      )
+    values (#{name,jdbcType=VARCHAR}, #{slug,jdbcType=VARCHAR}, #{termGroup,jdbcType=BIGINT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="day170511.User.UserLog">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+  <insert id="insertSelective" parameterType="day170511.term.Terms">
+    <selectKey keyProperty="termId" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user_log
+    insert into terms
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userGuid != null">
-        user_guid,
+      <if test="name != null">
+        name,
       </if>
-      <if test="opCode != null">
-        op_code,
+      <if test="slug != null">
+        slug,
       </if>
-      <if test="opResult != null">
-        op_result,
-      </if>
-      <if test="opDate != null">
-        op_date,
+      <if test="termGroup != null">
+        term_group,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userGuid != null">
-        #{userGuid,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="opCode != null">
-        #{opCode,jdbcType=INTEGER},
+      <if test="slug != null">
+        #{slug,jdbcType=VARCHAR},
       </if>
-      <if test="opResult != null">
-        #{opResult,jdbcType=INTEGER},
-      </if>
-      <if test="opDate != null">
-        #{opDate,jdbcType=TIMESTAMP},
+      <if test="termGroup != null">
+        #{termGroup,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="day170511.User.UserLogExample" resultType="java.lang.Long">
-    select count(*) from user_log
+  <select id="countByExample" parameterType="day170511.term.TermsExample" resultType="java.lang.Long">
+    select count(*) from terms
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_log
+    update terms
     <set>
-      <if test="record.id != null">
-        ID = #{record.id,jdbcType=BIGINT},
+      <if test="record.termId != null">
+        term_id = #{record.termId,jdbcType=BIGINT},
       </if>
-      <if test="record.userGuid != null">
-        user_guid = #{record.userGuid,jdbcType=VARCHAR},
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.opCode != null">
-        op_code = #{record.opCode,jdbcType=INTEGER},
+      <if test="record.slug != null">
+        slug = #{record.slug,jdbcType=VARCHAR},
       </if>
-      <if test="record.opResult != null">
-        op_result = #{record.opResult,jdbcType=INTEGER},
-      </if>
-      <if test="record.opDate != null">
-        op_date = #{record.opDate,jdbcType=TIMESTAMP},
+      <if test="record.termGroup != null">
+        term_group = #{record.termGroup,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -180,40 +170,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_log
-    set ID = #{record.id,jdbcType=BIGINT},
-      user_guid = #{record.userGuid,jdbcType=VARCHAR},
-      op_code = #{record.opCode,jdbcType=INTEGER},
-      op_result = #{record.opResult,jdbcType=INTEGER},
-      op_date = #{record.opDate,jdbcType=TIMESTAMP}
+    update terms
+    set term_id = #{record.termId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      slug = #{record.slug,jdbcType=VARCHAR},
+      term_group = #{record.termGroup,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="day170511.User.UserLog">
-    update user_log
+  <update id="updateByPrimaryKeySelective" parameterType="day170511.term.Terms">
+    update terms
     <set>
-      <if test="userGuid != null">
-        user_guid = #{userGuid,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="opCode != null">
-        op_code = #{opCode,jdbcType=INTEGER},
+      <if test="slug != null">
+        slug = #{slug,jdbcType=VARCHAR},
       </if>
-      <if test="opResult != null">
-        op_result = #{opResult,jdbcType=INTEGER},
-      </if>
-      <if test="opDate != null">
-        op_date = #{opDate,jdbcType=TIMESTAMP},
+      <if test="termGroup != null">
+        term_group = #{termGroup,jdbcType=BIGINT},
       </if>
     </set>
-    where ID = #{id,jdbcType=BIGINT}
+    where term_id = #{termId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="day170511.User.UserLog">
-    update user_log
-    set user_guid = #{userGuid,jdbcType=VARCHAR},
-      op_code = #{opCode,jdbcType=INTEGER},
-      op_result = #{opResult,jdbcType=INTEGER},
-      op_date = #{opDate,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=BIGINT}
+  <update id="updateByPrimaryKey" parameterType="day170511.term.Terms">
+    update terms
+    set name = #{name,jdbcType=VARCHAR},
+      slug = #{slug,jdbcType=VARCHAR},
+      term_group = #{termGroup,jdbcType=BIGINT}
+    where term_id = #{termId,jdbcType=BIGINT}
   </update>
 </mapper>
