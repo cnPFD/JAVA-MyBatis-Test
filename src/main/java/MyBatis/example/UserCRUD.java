@@ -21,11 +21,11 @@ public class UserCRUD {
 
     static{
         try {
-<<<<<<< HEAD
+
             reader = Resources.getResourceAsReader( "MyBatis/example/SqlMapConfig.xml" );
-=======
+
             reader = Resources.getResourceAsReader("MyBatis/example/SqlMapConfig.xml");
->>>>>>> e851aafe2eea767cf7b3d43e0560f266a10f92c6
+
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (IOException e) {
             e.printStackTrace();

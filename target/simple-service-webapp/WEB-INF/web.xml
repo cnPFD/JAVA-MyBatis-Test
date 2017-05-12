@@ -7,15 +7,14 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-<<<<<<< HEAD
 
-            <param-value>ck.MyBatis.ck170511</param-value>
+
+            <!--<param-value>ck.MyBatis.ck170511</param-value>-->
 
             <!--<param-value>MyBatis,wcc,lcw,ck,fqq</param-value>-->
 
-=======
-            <param-value>ck.MyBatis,MyBatis.example.lcw,wcc</param-value>
->>>>>>> e851aafe2eea767cf7b3d43e0560f266a10f92c6
+
+            <param-value>day170511</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

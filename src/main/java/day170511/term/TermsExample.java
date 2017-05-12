@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.validator.constraints.NotEmpty;
+
 
 public class TermsExample {
     protected String orderByClause;

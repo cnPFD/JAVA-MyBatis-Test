@@ -13,24 +13,16 @@ import org.apache.ibatis.annotations.Param;
 
 public interface TermsMapper {
     long countByExample(TermsExample example);
-
     int deleteByExample(TermsExample example);
-
     int deleteByPrimaryKey(Long termId);
-
     int insert(Terms record);
-
     int insertSelective(Terms record);
-
     List<Terms> selectByExample(TermsExample example);
-
     Terms selectByPrimaryKey(Long termId);
-
     int updateByExampleSelective(@Param("record") Terms record, @Param("example") TermsExample example);
-
     int updateByExample(@Param("record") Terms record, @Param("example") TermsExample example);
-
     int updateByPrimaryKeySelective(Terms record);
-
     int updateByPrimaryKey(Terms record);
+
+
 }
